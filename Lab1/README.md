@@ -1,1 +1,1 @@
-GitHub Pages link: https://workata.github.io/pro-int-web/Lab1/student_home.html
+GitHub Pages link: https://workata.github.io/pro-int-web/Lab1
