@@ -10,14 +10,14 @@ body{
 
 #description{
     width: 700px;
-    height: 420px;
+    height: 220px;
     background-color: rgb(226, 226, 226);
     border-radius: 10px;
     margin-top: 50px;
 }
 
 #plan_of_classes{
-    width: 570px;
+    width: 700px;
     height: 350px;
     background-color: rgb(226, 226, 226);
     border-radius: 10px;
