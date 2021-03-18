@@ -10,7 +10,7 @@ body{
 
 #description{
     width: 700px;
-    height: 220px;
+    height: 500px;
     background-color: rgb(226, 226, 226);
     border-radius: 10px;
     margin-top: 50px;
@@ -18,7 +18,7 @@ body{
 
 #plan_of_classes{
     width: 700px;
-    height: 350px;
+    height: 250px;
     background-color: rgb(226, 226, 226);
     border-radius: 10px;
     margin-top: 50px;
