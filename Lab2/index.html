@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
+
+    <!-- Font awesome - icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+
+    <!-- CSS link-->
+    <link rel="stylesheet" href="./index.css">
+
+    <title>ToDo App</title>
+</head>
+<body>
+
+    <button id = "undo-button">
+        <i class="fas fa-undo-alt"></i>
+    </button>
+
+    <header>
+        <h1>ToDo App</h1>
+    </header>
+
+    <form>
+        <!--Add todo-->
+        <label for="addInput">Add ToDo: </label>
+        <input type="text" placeholder="e.g. Do the dishes" class="todo-input" id="addInput">
+        <button class = "todo-button" type="submit">
+            <i class="fas fa-plus-circle"></i>
+        </button>
+    </form>
+
+    <div class="centered" id="search-container">
+        <label for="searchInput" >Search ToDo: </label>
+        <input type="text" placeholder="e.g. dishes" class="todo-input" id="search-input">
+    </div>
+
+    <div class = "todo-container">
+        <ul class ="todo-list"></ul>
+    </div>
+
+    <script src="./todoApp.js"></script>
+</body>
+</html>

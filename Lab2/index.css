@@ -1,0 +1,181 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-image: url('img/vintage-wallpaper.png');
+    color: white;
+    font-family: 'Noto Sans JP', sans-serif;
+    /*min-height: 100vh;*/
+}
+
+header{
+    font-size: 1.5rem;
+}
+
+label{
+    font-size: 25px;
+    margin-right: 20px;
+}
+
+header,
+form {
+    min-height: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form input, form button{
+    padding: 5px;
+    font-size: 30px;
+    border: none;
+    background: white;
+}
+
+form input{
+    border-radius: 15px;
+    width: 600px;
+}
+
+form button{
+    color: #6c59d6;
+    background: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-left: 10px;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+}
+
+form button:hover{
+    color: white;
+    background: #6c59d6;
+}
+
+.todo-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.todo-list{
+    min-width: 40%;
+    list-style: none;
+}
+
+.todo{
+    margin: 0.5rem;
+    /* background-color:rgba(255,255,255,1); */
+    color: black;
+    font-size: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.5s ease;
+    border-radius: 15px;
+}
+
+.todo li{
+    flex: 1;
+    background-color:white;
+    margin: 0.5rem;
+    /* background-color:rgba(255,255,255,1); */
+    color: black;
+    font-size: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.5s ease;
+    border-radius: 15px;
+
+}
+
+.delete-btn, .complete-btn{
+    background: #f08264;
+    color: white;
+    border: none;
+    padding: 1rem;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    font-size: 18px;
+    border-radius: 50%;
+}
+
+.complete-btn{
+    background: #467fd6;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.todo-item{
+    padding: 0rem 0.5rem;
+}
+
+.fa-check-square, .fa-times{
+    /* You cant click on those */
+    pointer-events: none;
+}
+
+.completed{
+    text-decoration: line-through;
+    color: grey !important;
+}
+
+.done-date-time{
+    background: white;
+    border-radius: 15px;
+    padding: 5px;
+    text-decoration: none;
+    display: none;
+    font-size: 18px;
+}
+
+.centered {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#undo-button{
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    padding: 0.5rem;
+    width: 50px;
+    height: 50px;
+    font-size: 30px;
+    border: none;
+    color: #6c59d6;
+    background: white;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+#undo-button:hover{
+    color: white;
+    background: #6c59d6;
+}
+
+#search-input{
+    padding: 5px;
+    font-size: 30px;
+    border: none;
+    background: white;
+    border-radius: 15px;
+    width: 600px;
+}
+
+#search-container{
+    margin-top: -30px;
+    margin-left: -40px;
+    margin-bottom: 30px;
+    width: 800px;
+}
+
