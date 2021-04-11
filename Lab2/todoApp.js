@@ -1,23 +1,43 @@
 "use strict"; // Defines that JavaScript code should be executed in "strict mode"
 
-//Selectors
+// JS - selectors
 const todoInput = document.querySelector('.todo-input');
 const todoButton = document.querySelector('.todo-button');
 const todoList = document.querySelector('.todo-list');
-const undoButton = document.querySelector('#undo-button');
 const searchToDoInput = document.querySelector('#search-input');
 
-//Event Listeners
-todoButton.addEventListener('click', addTodo);
-todoList.addEventListener('click', delteCheck)
-undoButton.addEventListener('click', undoTodoDelete)
-searchToDoInput.addEventListener('input', searchToDo)
+// JS - event Listeners
+todoButton.addEventListener('click', addToDo);
+todoList.addEventListener('click', checkToDo);
+searchToDoInput.addEventListener('input', searchToDo);
+
+var lastDeletedToDo = null;    // Global variable for last deleted item
+
+// * JQ selectors + listeners + functions
+// * Undo button
+$('#undo-button').on( "click", function() {
+    if(lastDeletedToDo != null)
+    {
+        $('.todo-list').append(lastDeletedToDo);
+        lastDeletedToDo = null;
+    } 
+});
+
+// * Delete ToDo button
+$('.todo-list').on( "click", function(event) {
+    const item = event.target;
+    if(item.classList[0] === 'delete-btn'){
+        // Confirm if you really want to delete an element
+        if (confirm("Do you really want to delete an element from a list?")) {
+            const todo = item.parentElement;
+            lastDeletedToDo = todo; // Remember last deleted element
+            todo.remove();
+        } 
+    }
+});
 
 
-//Functions
-
-var lastDeletedToDo;
-
+// * JS functions
 function todoInputValidated(){
     var todoContent = todoInput.value;
     if(todoContent === '' || todoContent === null)
@@ -28,7 +48,7 @@ function todoInputValidated(){
     return true
 }
 
-function addTodo(event){
+function addToDo(event){
     // prevent form from submitting
     event.preventDefault(); 
 
@@ -70,18 +90,8 @@ function addTodo(event){
     todoInput.value = "";
 }
 
-function delteCheck(event){
-    //console.log(event.target);
+function checkToDo(event){
     const item = event.target;
-    // Delte todo
-    if(item.classList[0] === 'delete-btn'){
-        // Confirm if you really want to delete an element
-        if (confirm("Do you really want to delete an element from a list?")) {
-            const todo = item.parentElement;
-            lastDeletedToDo = todo; // Remember last deleted element
-            todo.remove();
-        } 
-    }
 
     // Check todo
     if(item.classList[0] === 'complete-btn'){
@@ -106,14 +116,6 @@ function delteCheck(event){
 
 }
 
-function undoTodoDelete(event){
-    if(lastDeletedToDo != null)
-    {
-        todoList.appendChild(lastDeletedToDo);
-        lastDeletedToDo = null;
-    } 
-}
-
 function searchToDo(event){
     const searchByValue = searchToDoInput.value;
     const todoElements = todoList.childNodes;
@@ -128,14 +130,12 @@ function searchToDo(event){
     }
 
     todoElements.forEach(function(todo){
-        const todoText = todo.children[1].innerText;    // second child -> list item with content
-        // console.log(todoText);
+        const todoText = todo.children[1].innerText;   // second child -> list item with content
         if(todoText.includes(searchByValue)){
-            todo.style.display = "flex"; // make this todo div disappear 
+            todo.style.display = "flex";               // make this todo div disappear 
         }
         else{
             todo.style.display = "none";
         }
     });
-    // console.log(searchByValue);
 }

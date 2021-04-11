@@ -12,7 +12,7 @@ body{
 }
 
 header{
-    font-size: 1.5rem;
+    font-size: 25px;
 }
 
 label{
@@ -22,7 +22,7 @@ label{
 
 header,
 form {
-    min-height: 20vh;
+    min-height: 170px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -70,7 +70,6 @@ form button:hover{
 
 .todo{
     margin: 0.5rem;
-    /* background-color:rgba(255,255,255,1); */
     color: black;
     font-size: 25px;
     display: flex;
@@ -84,7 +83,6 @@ form button:hover{
     flex: 1;
     background-color:white;
     margin: 0.5rem;
-    /* background-color:rgba(255,255,255,1); */
     color: black;
     font-size: 25px;
     display: flex;
@@ -118,7 +116,7 @@ form button:hover{
 }
 
 .fa-check-square, .fa-times{
-    /* You cant click on those */
+    /* Block clicking */
     pointer-events: none;
 }
 
