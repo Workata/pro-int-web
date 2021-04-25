@@ -1,0 +1,13 @@
+#appContainer{
+    background-image: url('../img/prism.png');
+    border-radius: 10px;
+    min-height: 500px;
+}
+
+.center{
+    margin: auto;
+    margin-top: 10%;
+    width: 50%;
+    /*border: 3px solid green;*/
+    padding: 10px;
+}
