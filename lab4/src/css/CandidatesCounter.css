@@ -1,0 +1,16 @@
+@font-face {
+    font-family: LatoBold;
+    src: url('../fonts/Lato-Bold.ttf');
+  }
+
+#numberOfCandidates{
+    font-family: LatoBold;
+}
+
+#numberOfCandidatesContainer{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 15px;
+    font-size: 20px;
+
+}

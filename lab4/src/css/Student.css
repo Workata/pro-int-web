@@ -1,0 +1,14 @@
+@font-face {
+    font-family: LatoBold;
+    src: url('../fonts/Lato-Bold.ttf');
+  }
+
+.data-desc{
+    font-family: LatoBold;
+    margin-right: 10px;
+}
+
+.student-container{
+    margin-top: 15px;
+    margin-left: 15px;
+}
