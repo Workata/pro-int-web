@@ -2,7 +2,7 @@ import React, { Component, useState} from 'react';
 import './css/AddStudent.css';
 import Button from '@material-ui/core/Button';
 
-export default class AddStudent extends Component {
+export default class AddGroup extends Component {
 
     constructor(props) {
         super(props);
@@ -33,7 +33,7 @@ export default class AddStudent extends Component {
           alert('Fields cannot be empty. Please fill them.')
           return
         }
-        this.props.handleAddStudent({'name': this.state.name, 'description': this.state.description, 'email': this.state.email, 'tags': this.state.tags, 'show': true});
+        this.props.handleAddGroup({'name': this.state.name, 'description': this.state.description, 'email': this.state.email, 'tags': this.state.tags, 'show': true});
         // * reset fields
         this.state.name = ''
         this.state.description = ''
@@ -46,13 +46,13 @@ export default class AddStudent extends Component {
             <div id = "addStudentContainer">
                 {/* <span id="addDesc">Add a new student:</span> */}
                 <form onSubmit = {this.submitStudentHandler}>
-                    <input type="text" value={this.state.name}  onChange={this.changeNameHandler}  placeholder="Student's name" className="add-input"></input><br></br>
-                    <input type="text" value={this.state.description} onChange={this.changeDescriptionHandler}  placeholder="Student's description" className="add-input"></input><br></br>
-                    <input type="text" value={this.state.email} onChange={this.changeEmailHandler}  placeholder="Student's e-mail" className="add-input"></input><br></br>
+                    <input type="text" value={this.state.name}  onChange={this.changeNameHandler}  placeholder="Group's name" className="add-input"></input><br></br>
+                    <input type="text" value={this.state.description} onChange={this.changeDescriptionHandler}  placeholder="Group's description" className="add-input"></input><br></br>
+                    <input type="text" value={this.state.email} onChange={this.changeEmailHandler}  placeholder="Group's e-mail" className="add-input"></input><br></br>
                     <input type="text" value={this.state.tags} onChange={this.changeTagsHandler}  placeholder="Tags (technologies)" className="add-input"></input><br></br>
                     {/* <input type="submit" value="Add student"/> */}
                     <Button variant="contained" color="primary" size="large" type="submit" id="addButton">
-                      Add a student
+                      Add a group
                     </Button>
                 </form>
             </div>

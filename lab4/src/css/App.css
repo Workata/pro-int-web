@@ -30,7 +30,7 @@
     height: 200px;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 150px;
+    margin-top: 110px;
     text-align: center;
 }
 
@@ -40,7 +40,6 @@
     margin-right: 180px;
     margin-top: 190px;
     margin-left: 50px;
-
 }
 
 #addContainer{
@@ -57,5 +56,19 @@
     /* background-color: aqua; */
     margin-top: 50px;
     float: left;
+}
 
+
+#searchGroupsContainer{
+    /* background-color: rgb(0, 255, 149); */
+    float: left;
+    margin-right: 180px;
+    margin-top: 190px;
+    margin-left: 50px;
+}
+
+#groupsContainer{
+    /* background-color: aqua; */
+    margin-top: 50px;
+    float: left;
 }
