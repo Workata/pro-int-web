@@ -163,7 +163,7 @@ function App() {
     <Router>
       <div id="appContainer" className="center">
         <Switch>
-          <Route exact path="/">
+          <Route exact path="/pro-int-web">
             <div id = "menu">
               <Link to="/searchStudents" className="link">
                 <Button variant="contained" color="primary" size="large">
@@ -174,7 +174,7 @@ function App() {
               <br></br>
               <br></br>
 
-              <Link to="/addStudent" className="link">
+              <Link to="/pro-int-web/addStudent" className="link">
                 <Button variant="contained" color="primary" size="large">
                   Add a new student
                 </Button>
