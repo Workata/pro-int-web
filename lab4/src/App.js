@@ -165,7 +165,7 @@ function App() {
         <Switch>
           <Route exact path="/pro-int-web">
             <div id = "menu">
-              <Link to="/searchStudents" className="link">
+              <Link to="/pro-int-web/searchStudents" className="link">
                 <Button variant="contained" color="primary" size="large">
                   Search for a student
                 </Button>
@@ -185,7 +185,7 @@ function App() {
               <br></br>
               <br></br>
 
-              <Link to="/searchGroup" className="link">
+              <Link to="/pro-int-web/searchGroup" className="link">
                 <Button variant="contained" color="primary" size="large">
                   Search for a group
                 </Button>
@@ -194,7 +194,7 @@ function App() {
               <br></br>
               <br></br>
 
-              <Link to="/addGroup" className="link">
+              <Link to="/pro-int-web/addGroup" className="link">
                 <Button variant="contained" color="primary" size="large">
                   Add a new group
                 </Button>
@@ -203,8 +203,8 @@ function App() {
             </div>
           </Route>
 
-          <Route path="/searchStudents">
-            <Link to="/" className="link">
+          <Route path="/pro-int-web/searchStudents">
+            <Link to="/pro-int-web/" className="link">
               <Button variant="contained" color="primary" size="medium"  id="backButton">
                     Back
               </Button>
@@ -223,8 +223,8 @@ function App() {
           </Route>
 
           
-          <Route path="/searchGroup">
-            <Link to="/" className="link">
+          <Route path="/pro-int-web/searchGroup">
+            <Link to="/pro-int-web/" className="link">
               <Button variant="contained" color="primary" size="medium"  id="backButton">
                     Back
               </Button>
@@ -242,8 +242,8 @@ function App() {
             <div style={{clear:'both'}}></div>
           </Route>
 
-          <Route path="/addStudent">
-            <Link to="/" className="link">
+          <Route path="/pro-int-web/addStudent">
+            <Link to="/pro-int-web/" className="link">
               <Button variant="contained" color="primary" size="medium"  id="backButton">
                     Back
               </Button>
@@ -253,8 +253,8 @@ function App() {
             </div>
           </Route>
 
-          <Route path="/addGroup">
-            <Link to="/" className="link">
+          <Route path="/pro-int-web/addGroup">
+            <Link to="/pro-int-web/" className="link">
               <Button variant="contained" color="primary" size="medium"  id="backButton">
                     Back
               </Button>
