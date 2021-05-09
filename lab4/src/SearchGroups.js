@@ -9,12 +9,12 @@ export default class SearchGroups extends Component {
 
     changeTagHandler = (event) => {
         this.setState({searchTag: event.target.value});
-        this.props.searchByTag(event.target.value);
+        this.props.searchByTagGroup(event.target.value);
       }
 
     changeDescriptionHandler = (event) => {
         this.setState({searchDescription: event.target.value});
-        this.props.searchByDesc(event.target.value);
+        this.props.searchByDescGroup(event.target.value);
       }
 
     render() {

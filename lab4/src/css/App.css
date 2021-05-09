@@ -2,12 +2,17 @@
     background-image: url('../img/prism.png');
     border-radius: 10px;
     min-height: 500px;
+    /* display: inline-block; */
+    /* min-width: 600px; */
+    width: auto;
+    max-width: 1200px;
+    min-width: 700px;
 }
 
 .center{
     margin: auto;
     margin-top: 10%;
-    width: 50%;
+    /* width: 50%; */
     /*border: 3px solid green;*/
     padding: 10px;
 }
