@@ -2,7 +2,7 @@
   "name": "lab4",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://workata.github.io/pro-int-web",
+  "homepage": "https://workata.github.io/",
   "dependencies": {
     "@material-ui/core": "^4.11.4",
     "@testing-library/jest-dom": "^5.12.0",
@@ -18,6 +18,7 @@
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
+    
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -41,4 +42,5 @@
       "last 1 safari version"
     ]
   }
+  
 }
