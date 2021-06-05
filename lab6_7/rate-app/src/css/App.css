@@ -1,0 +1,26 @@
+/* #appContainer{
+  background-image: url('../img/dark_fish_skin.png');
+} */
+
+.center-h {
+  margin: auto;
+  width: 50%;
+}
+
+.center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+#menu{
+  background-image: url('../img/grey_wash_wall.png');
+  width: 300px;
+  height: 150px;
+  text-align: center;
+  border-radius: 10px;
+  padding-top: 50px;
+}
