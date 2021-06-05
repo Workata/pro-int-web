@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import firebase from "../firebase/config";
 import {Auth} from "../context/authContext";
 import { Switch } from "react-router";
+import {Redirect, withRouter} from "react-router-dom";
 
 const Signin = () => {
 
@@ -10,14 +11,18 @@ const Signin = () => {
 
     const {state, dispatch} = React.useContext(Auth);
 
+    const [routeRedirect, setRedirect] = useState(false);
+
     const signin = async (e) => {
         e.preventDefault();
         
         let response = await firebase.signin(email, password);
         if(response.hasOwnProperty("message")){
             console.log(response.message);
+            
         }else{
             console.log(response.user);
+            setRedirect(true);
             return dispatch({
                 type: "SIGNIN",
                 payload: response
@@ -25,6 +30,11 @@ const Signin = () => {
         }
 
         console.log(state.user);
+    }
+
+    const redirect = routeRedirect;
+    if(redirect){
+        return <Redirect to="/"/>
     }
 
     return (
@@ -45,4 +55,4 @@ const Signin = () => {
     )
 }
 
-export default Signin;
+export default withRouter(Signin);

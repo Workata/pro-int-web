@@ -54,6 +54,26 @@ class Firebase{
         });
         return logout;
     }
+
+    async getUserState(){
+        return new Promise(resolve => {
+            this.auth.onAuthStateChanged(resolve);
+        });
+    }
+
+    async createPost(post) {
+        let newPost = {
+            title: post.title,
+            rating: post.rating
+        }
+
+        const firestorePost = await firebase.firestore().collection("Films").add(newPost).catch(err => {
+            console.log(err);
+            return err;
+        });
+        return firestorePost;
+    }
+
 }
 
 export default new Firebase();
