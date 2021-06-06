@@ -1,7 +1,8 @@
 #filmTableContainer{
-    background-image: url("../img/so-white.png");
+    /* background-image: url("../img/so-white.png"); */
     width: 700px;
     height: 400px;
+    background-color: white;
 }
 
 #addFilmContainer{
@@ -14,6 +15,15 @@
     border-radius: 20px;
 }
 
+.center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+
 #goBackIcon{
     position: absolute;
     top: 20px;
@@ -25,11 +35,3 @@
     width: 50%;
   }
 
-.center {
-    margin: 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-  }

@@ -16,3 +16,9 @@
     border-radius: 20%;
 }
 
+#goBackIcon{
+    position: absolute;
+    top: 20px;
+    right: 50px;
+}
+

@@ -1,12 +1,15 @@
 import React, {useState} from "react";
 import firebase from "../firebase/config";
 import {Auth} from "../context/authContext";
-import { Switch } from "react-router";
-import {Redirect, withRouter} from "react-router-dom";
+import {Redirect, withRouter, Link} from "react-router-dom";
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import '../css/Login.css';
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import {
+    IconButton,
+  } from '@material-ui/core';
 
 const Signin = () => {
 
@@ -43,6 +46,14 @@ const Signin = () => {
 
     return (
         <React.Fragment>
+
+            <div id="goBackIcon">
+                <Link to="/" className="link">
+                    <IconButton>
+                        <ArrowBackIcon style={{fill: "white"}} />
+                    </IconButton>
+                </Link>
+            </div>
 
             <div id="loginContainer" className="center">
 
