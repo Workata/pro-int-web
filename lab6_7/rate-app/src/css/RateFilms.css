@@ -1,6 +1,6 @@
 #filmTableContainer{
     background-image: url("../img/so-white.png");
-    width: 900px;
+    width: 700px;
     height: 400px;
 }
 
@@ -12,6 +12,12 @@
     padding-bottom: 20px;
     padding-top: 20px;
     border-radius: 20px;
+}
+
+#goBackIcon{
+    position: absolute;
+    top: 20px;
+    right: 50px;
 }
 
 .center-h {

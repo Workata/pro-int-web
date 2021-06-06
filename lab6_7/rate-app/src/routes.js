@@ -1,11 +1,11 @@
 import React from "react";
 import {Switch, Route} from "react-router-dom";
 
-import Main from "./components/Main";
 import Signin from "./components/Signin";
 import Login from "./components/Login";
 import Create from "./components/Create";
 import RateFilms from "./components/RateFilms";
+import RateSeries from "./components/RateSeries";
 
 const  Routes = () => (
     <Switch>
@@ -14,6 +14,7 @@ const  Routes = () => (
         <Route exact path="/login" component = {Login} />
         <Route exact path="/create" component = {Create} />
         <Route exact path="/rate-films" component = {RateFilms} />
+        <Route exact path="/rate-series" component = {RateSeries} />
     </Switch>
 );
 

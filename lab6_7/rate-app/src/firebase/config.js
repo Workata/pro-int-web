@@ -30,7 +30,6 @@ class Firebase{
         this.db = firebase.firestore();
     }
 
-    //login
     async login(email, password){
         const user = await firebase.auth().signInWithEmailAndPassword(email, password).catch(err => {
             console.log(err);
@@ -61,7 +60,23 @@ class Firebase{
         });
     }
 
-    async getPosts(user){
+    async deleteFilm(filmDocName){
+        const deleteFilm  = await firebase.firestore().collection("Films").doc(filmDocName).delete().then(() => {
+            console.log("Document successfully deleted!");
+        }).catch((error) => {
+            console.error("Error removing document: ", error);
+        });
+    }
+
+    async deleteSeries(filmDocName){
+        const deleteSeries = await firebase.firestore().collection("Series").doc(filmDocName).delete().then(() => {
+            console.log("Document successfully deleted!");
+        }).catch((error) => {
+            console.error("Error removing document: ", error);
+        });
+    }
+
+    async getFilms(user){
         let postsArray = [];
         const posts  = await firebase.firestore().collection("Films").where('uid', '==', user.uid).get();
         posts.forEach(doc => {
@@ -70,15 +85,32 @@ class Firebase{
         return postsArray;
     }
 
-    async getPost(postid){
-        const post = await firebase.firestore().collection("Films").doc(postid).get();
-        const postData = post.data();
-        return postData;
+    async getSeries(user){
+        let postsArray = [];
+        const posts  = await firebase.firestore().collection("Series").where('uid', '==', user.uid).get();
+        posts.forEach(doc => {
+            postsArray.push({id:doc.id, data: doc.data()});
+        });
+        return postsArray;
     }
 
-    async createPost(user, post) {
+
+    async addFilm(user, post) {
 
         const firestorePost = await firebase.firestore().collection("Films").add({
+            uid: user.uid,
+            title: post.title,
+            rating: post.rating
+        }).catch(err => {
+            console.log(err);
+            return err;
+        });
+        return firestorePost;
+    }
+
+    async addSeries(user, post) {
+
+        const firestorePost = await firebase.firestore().collection("Series").add({
             uid: user.uid,
             title: post.title,
             rating: post.rating

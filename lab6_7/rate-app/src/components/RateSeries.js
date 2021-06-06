@@ -51,7 +51,7 @@ import {
   ];
 
 
-const RateFilms = (props) => {
+const RateSeries = (props) => {
 
     const [title, setTitle] = useState("");
     const [rating, setRating] = useState("");
@@ -59,30 +59,30 @@ const RateFilms = (props) => {
 
     const [userState, setUserState] = useState(null);
 
-    const [films, setFilms] = useState([
+    const [series, setSeries] = useState([
         { id: '', titleField: '',  ratingField: '' },
       ]);
     
-    const fetchFilms = async (u) => {
-        const userFilms = await firebase.getFilms(u).catch(err => {
+    const fetchSeries = async (u) => {
+        const userSeries = await firebase.getSeries(u).catch(err => {
             console.log(err);
         });
         
-        console.log(userFilms);
+        console.log(userSeries);
 
-        var filmsInTable = [];
+        var seriesInTable = [];
 
-        userFilms.forEach(film => {
-            filmsInTable.push({
-                id: film.id,
-                titleField: film.data.title,
-                ratingField: film.data.rating
+        userSeries.forEach(series => {
+            seriesInTable.push({
+                id: series.id,
+                titleField: series.data.title,
+                ratingField: series.data.rating
             });
           });
         
-          console.log(filmsInTable);
+          console.log(seriesInTable);
 
-        setFilms(filmsInTable);
+        setSeries(seriesInTable);
     }
 
     useEffect(() => {
@@ -90,7 +90,7 @@ const RateFilms = (props) => {
         firebase.auth.onAuthStateChanged( async (u) => {
           if (u) {
             setUserState(u);
-            fetchFilms(u);
+            fetchSeries(u);
 
           } else {
             console.log("User not logged")
@@ -100,32 +100,32 @@ const RateFilms = (props) => {
         return () => unsubscribe();
       }, []);
 
-    const deleteFilm = async(film) => {
-        console.log("delete", film);
+    const deleteSeries = async(series) => {
+        console.log("delete", series);
 
-        await firebase.deleteFilm(film).then(() => {
+        await firebase.deleteSeries(series).then(() => {
             console.log("Success");
-            fetchFilms(userState);
+            fetchSeries(userState);
             
         }).catch(err => {
             console.log(err);
         });
 
-        fetchFilms(userState);
+        fetchSeries(userState);
 
     }
 
-    const addFilm = async(e) => {
+    const addSeries = async(e) => {
         e.preventDefault();
         
-        let film = {
+        let series = {
             title,
             rating
         }
 
-        await firebase.addFilm(userState, film).then(() => {
+        await firebase.addSeries(userState, series).then(() => {
             console.log("Success");
-            fetchFilms(userState);
+            fetchSeries(userState);
             
         }).catch(err => {
             console.log(err);
@@ -151,7 +151,7 @@ const RateFilms = (props) => {
 
             <div style={{textAlign: "center"}}>
                     <TextField
-                        label="Film title"
+                        label="Series title"
                         placeholder="Title"
                         variant="outlined"
                         value={title}
@@ -163,7 +163,7 @@ const RateFilms = (props) => {
 
             <div style={{textAlign: "center"}}>
                     <TextField
-                        label="Film rating"
+                        label="Series rating"
                         placeholder="Rating"
                         variant="outlined"
                         value={rating}
@@ -174,8 +174,8 @@ const RateFilms = (props) => {
             <br></br>
 
             <div style={{textAlign: "center"}}>
-                    <Button variant="contained" color="primary" size="large" onClick={addFilm}>
-                        Add film
+                    <Button variant="contained" color="primary" size="large" onClick={addSeries}>
+                        Add series
                     </Button>
             </div>
 
@@ -183,7 +183,7 @@ const RateFilms = (props) => {
 
         <div id = "filmTableContainer" className="center">
             <DataGrid
-            rows={films}
+            rows={series}
             columns={columns}
             pageSize={10}
             checkboxSelection
@@ -191,7 +191,7 @@ const RateFilms = (props) => {
             onCellClick={(params, event) => {
                 if (params.field === '__check__') return;
                 if (params.field === 'deleteField') {
-                  deleteFilm(params.row.id);
+                  deleteSeries(params.row.id);
                   return;
                 }
                 // setSelectedWorkspace(params.row.name);
@@ -204,4 +204,4 @@ const RateFilms = (props) => {
     )
 }
 
-export default RateFilms;
+export default RateSeries;

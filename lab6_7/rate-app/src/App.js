@@ -9,7 +9,6 @@ import {
 import React, {useState, useEffect} from "react";
 import firebase from "./firebase/config";
 import Routes from "./routes";
-import Nav from "./components/Nav";
 import Login from "./components/Login"
 
 function App() {
@@ -66,7 +65,7 @@ function App() {
                 <br></br>
                 <br></br>
 
-                <Link to="/register" className="link">
+                <Link to="/rate-series" className="link">
                   <Button variant="contained" color="primary" size="large">
                     Rate series
                   </Button>
