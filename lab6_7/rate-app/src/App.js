@@ -95,7 +95,7 @@ function App() {
 
   return (
 
-    <Router basename="/">
+    <Router basename="/pro-int-web">
       <div id="appContainer">
         <Switch>
           <Route exact path="/">
