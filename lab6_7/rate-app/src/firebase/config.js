@@ -61,13 +61,28 @@ class Firebase{
         });
     }
 
-    async createPost(post) {
-        let newPost = {
+    async getPosts(user){
+        let postsArray = [];
+        const posts  = await firebase.firestore().collection("Films").where('uid', '==', user.uid).get();
+        posts.forEach(doc => {
+            postsArray.push({id:doc.id, data: doc.data()});
+        });
+        return postsArray;
+    }
+
+    async getPost(postid){
+        const post = await firebase.firestore().collection("Films").doc(postid).get();
+        const postData = post.data();
+        return postData;
+    }
+
+    async createPost(user, post) {
+
+        const firestorePost = await firebase.firestore().collection("Films").add({
+            uid: user.uid,
             title: post.title,
             rating: post.rating
-        }
-
-        const firestorePost = await firebase.firestore().collection("Films").add(newPost).catch(err => {
+        }).catch(err => {
             console.log(err);
             return err;
         });

@@ -8,6 +8,16 @@ const Create = (props) => {
     const [rating, setRating] = useState("");
     const [routeRedirect, setRedirect] = useState(false);
 
+    const [userState, setUserState] = useState(null);
+
+    useEffect( () => {
+        firebase.getUserState().then(user => {
+            if(user){
+                setUserState(user);
+            }
+        })
+    });
+
 
     const addPost = async(e) => {
         e.preventDefault();
@@ -17,12 +27,20 @@ const Create = (props) => {
             rating
         }
 
-        await firebase.createPost(post).then(() => {
+        await firebase.createPost(userState, post).then(() => {
             console.log("Success");
             setRedirect(true);
         }).catch(err => {
             console.log(err);
         });
+    }
+
+    const checkFilms = async(e) => {
+        const films = await firebase.getPosts(userState).catch(err => {
+            console.log(err);
+        });
+
+        console.log("Films", films);
     }
 
     let createForm;
@@ -36,13 +54,13 @@ const Create = (props) => {
             <input type="number" name="rating" onChange={(e) => setRating(e.target.value)}></input>
 
             <input type="submit"></input>
-
         </form>
     )
 
     return (
         <React.Fragment>
             {createForm}
+            <button onClick={checkFilms}>Check films</button>
         </React.Fragment>
     )
 }

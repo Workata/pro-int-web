@@ -23,10 +23,10 @@ const Signin = () => {
         }else{
             console.log(response.user);
             setRedirect(true);
-            return dispatch({
-                type: "SIGNIN",
-                payload: response
-            })
+            // return dispatch({
+            //     type: "SIGNIN",
+            //     payload: response
+            // })
         }
 
         console.log(state.user);
