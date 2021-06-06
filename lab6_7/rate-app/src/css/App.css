@@ -17,10 +17,11 @@
 }
 
 #menu{
-  background-image: url('../img/grey_wash_wall.png');
+  background-image: url('../img/so-white.png');
   width: 300px;
-  height: 150px;
+  min-height: 150px;
   text-align: center;
   border-radius: 10px;
   padding-top: 50px;
+  padding-bottom: 30px;
 }

@@ -3,6 +3,10 @@ import firebase from "../firebase/config";
 import {Auth} from "../context/authContext";
 import { Switch } from "react-router";
 import {Redirect, withRouter} from "react-router-dom";
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
+import { makeStyles } from '@material-ui/core/styles';
+import '../css/Login.css';
 
 const Signin = () => {
 
@@ -39,7 +43,45 @@ const Signin = () => {
 
     return (
         <React.Fragment>
-            <form onSubmit={signin}>
+
+            <div id="loginContainer" className="center">
+
+                <div style={{textAlign: "center"}}>
+                    <TextField
+                        label="Email"
+                        placeholder="Enter email"
+                        type="email"
+                        variant="outlined"
+                        // className={classes.loginTextField}
+                        // onChange={({ target: { value } }) => {
+                        // setTypedUsername(value);
+                        // }}
+                        onChange={(e) => setEmail(e.target.value)}
+                    />
+                </div>
+            <br></br>
+            <br></br>
+
+                <div style={{textAlign: "center"}}>
+                    <TextField
+                        id="standard-password-input"
+                        label="Password"
+                        type="password"
+                        variant="outlined"
+                        autoComplete="current-password"
+                        onChange = {(e) => setPassword(e.target.value)}
+                    />
+                </div>
+            <br></br>
+            <br></br>
+                <div style={{textAlign: "center"}}>
+                    <Button variant="contained" color="primary" size="large" onClick={signin}>
+                        Register
+                    </Button>
+                </div>
+            </div>
+
+            {/* <form onSubmit={signin}>
                 <p>Create an Account</p>
 
                 <label htmlFor="email">Email: </label>
@@ -50,7 +92,7 @@ const Signin = () => {
 
                 <input type="submit" value = "Create account"/>
 
-            </form>
+            </form> */}
         </React.Fragment>
     )
 }
