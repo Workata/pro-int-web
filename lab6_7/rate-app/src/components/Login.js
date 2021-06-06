@@ -16,7 +16,8 @@ const Login = () => {
         e.preventDefault();
         let user = await firebase.login(email, password);
         console.log(user);
-        setRedirect(true);
+        //setTimeout(function(){setRedirect(true)}, 10000);
+        setRedirect(true)
 
     }
 
@@ -92,5 +93,5 @@ const Login = () => {
     )
 }
 
-export default withRouter(Login);
+export default Login;
 

@@ -18,26 +18,18 @@ function App() {
   const [userState, setUserState] = useState(null);
   const [userID, setUserID] = useState('');
 
-  let buttons;
-
-  useEffect( () => {
-      firebase.getUserState().then(user => {
-          if(user){
-              setUserState(user);
-              setUserID(user.uid);
-              // window.location.reload();
-              // if(!window.location.hash) {
-              //   window.location = window.location + '#loaded';
-              //   window.location.reload();
-              // }
-          }
-          else{
-            setUserState(null);
-            setUserID(null);
-          }
-      })
-
-  }, [])
+  useEffect(() => {
+    const unsubscribe =
+    firebase.auth.onAuthStateChanged( (u) => {
+      if (u) {
+        setUserState(u);
+      } else {
+        console.log("User not logged")
+        setUserState(null);
+      }
+    });
+    return () => unsubscribe();
+  }, []);
 
   // window.onload = function() {
   //   if(!window.location.hash) {
@@ -54,54 +46,6 @@ function App() {
     // props.history.replace("/login");
   }
 
-  
-  // if(userState == null){
-  //     buttons = (
-  //         <React.Fragment>
-  //             <Link to="/login" className="link">
-  //               <Button variant="contained" color="primary" size="large">
-  //                 Login
-  //               </Button>
-  //             </Link>
-
-  //             <br></br>
-  //             <br></br>
-
-  //             <Link to="/register" className="link">
-  //               <Button variant="contained" color="primary" size="large">
-  //                 Register
-  //               </Button>
-  //             </Link>
-  //         </React.Fragment>
-  //     )
-  // }else{
-  //     buttons = (
-  //         <React.Fragment>
-  //             {/* Hello {userState.uid} */}
-  //             <Link to="/login" className="link">
-  //               <Button variant="contained" color="primary" size="large">
-  //                 Rate films
-  //               </Button>
-  //             </Link>
-
-  //             <br></br>
-  //             <br></br>
-
-  //             <Link to="/register" className="link">
-  //               <Button variant="contained" color="primary" size="large">
-  //                 Rate series
-  //               </Button>
-  //             </Link>
-
-  //             <br></br>
-  //             <br></br>
-
-  //             <Button variant="contained" color="primary" size="large" onClick={logout}>
-  //                 Log out
-  //             </Button>
-  //         </React.Fragment>
-  //     )
-  // }
 
   if(userState)
     return (
@@ -113,7 +57,7 @@ function App() {
             {userID}
 
               <div id = "menu" className="center">
-                <Link to="/login" className="link">
+                <Link to="/rate-films" className="link">
                   <Button variant="contained" color="primary" size="large">
                     Rate films
                   </Button>
